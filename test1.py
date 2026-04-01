@@ -1,8 +1,8 @@
 import pygame
 
-def rotate_surf(screen, surf_rect, topleft, angle):
+def rotate_surf(screen, surf_rect, angle):
     rotated_surf_rect = pygame.transform.rotate(surf_rect, angle)
-    new_rect = rotated_surf_rect.get_rect(center = surf_rect.get_rect(topleft = topleft).center)
+    new_rect = rotated_surf_rect.get_rect(center = surf_rect.get_rect().center)
 
     screen.blit(rotated_surf_rect, new_rect.topleft)
 
@@ -18,7 +18,6 @@ def main():
     screen = pygame.display.set_mode((1910, 1040))
     clock = pygame.time.Clock()
     running = True
-    # rects = create_diagonal_rect(500)
 
     while running:
         for event in pygame.event.get():
@@ -33,7 +32,7 @@ def main():
         # screen.blit(surf, TOPLEFT_SURFACE)
 
         for angle in range(0, -81, -15):
-            rotate_surf(screen, surf, TOPLEFT_SURFACE, angle)
+            rotate_surf(screen, surf, angle)
         
         # flip() the display to put your work on screen
         pygame.display.flip()
