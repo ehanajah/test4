@@ -43,6 +43,4 @@ def main():
     pygame.quit()
 
 if __name__ == "__main__":
-    for angle in range(0, 91, 5):
-        print(angle)
     main()
